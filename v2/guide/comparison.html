@@ -869,7 +869,7 @@
 </ul>
 <p>由于有着众多的相似处，我们会用更多的时间在这一块进行比较。这里我们不只保证技术内容的准确性，同时也兼顾了平衡的考量。我们需要承认 React 比 Vue 更好的地方，比如更丰富的生态系统。</p>
 <p>React 社区为我们准确进行平衡的考量提供了<a href="https://github.com/vuejs/vuejs.org/issues/364" target="_blank" rel="external">非常积极的帮助</a>，特别感谢来自 React 团队的 Dan Abramov 。他非常慷慨的花费时间来贡献专业知识来帮助我们完善这篇文档。</p>
-<h3 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h3><p>React 和 Vue 在大部分常见场景下都能提供近似的性能。通常 Vue 会有少量优势，因为 Vue 的 Virtual DOM 实现相对更为轻量一些。如果你对数据感兴趣，可以参考这个专门测试渲染和更新性能的<a href="https://rawgit.com/krausest/js-framework-benchmark/master/webdriver-ts/table.html" target="_blank" rel="external">第三方跑分</a>。注意这个跑分并不包含针对大量复杂组件树的情况，因此只建议作为参考。</p>
+<h3 id="运行时性能"><a href="#运行时性能" class="headerlink" title="运行时性能"></a>运行时性能</h3><p>React 和 Vue 都是非常快的，所以速度并不是在它们之中做选择的决定性因素。对于具体的数据表现，可以移步这个<a href="http://www.stefankrause.net/js-frameworks-benchmark7/table.html" target="_blank" rel="external">第三方 benchmark</a>，它专注于渲染/更新非常简单的组件树的真实性能。</p>
 <h4 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h4><p>在 React 应用中，当某个组件的状态发生变化时，它会以该组件为根，重新渲染整个组件子树。</p>
 <p>如要避免不必要的子组件的重渲染，你需要在所有可能的地方使用 <code>PureComponent</code>，或是手动实现 <code>shouldComponentUpdate</code> 方法。同时你可能会需要使用不可变的数据结构来使得你的组件更容易被优化。</p>
 <p>然而，使用 <code>PureComponent</code> 和 <code>shouldComponentUpdate</code> 时，需要保证该组件的整个子树的渲染输出都是由该组件的 props 所决定的。如果不符合这个情况，那么此类优化就会导致难以察觉的渲染结果不一致。这使得 React 中的组件优化伴随着相当的心智负担。</p>
@@ -927,7 +927,7 @@
 <h3 id="灵活性和模块化"><a href="#灵活性和模块化" class="headerlink" title="灵活性和模块化"></a>灵活性和模块化</h3><p>Vue.js 是一个更加灵活开放的解决方案。它允许你以希望的方式组织应用程序，而不是在任何时候都必须遵循 AngularJS 制定的规则，这让 Vue 能适用于各种项目。我们知道把决定权交给你是非常必要的。<br>这也就是为什么我们提供 <a href="https://github.com/vuejs-templates/webpack" target="_blank" rel="external">webpack template</a>，让你可以用几分钟，去选择是否启用高级特性，比如热模块加载、linting、CSS 提取等等。</p>
 <h3 id="数据绑定"><a href="#数据绑定" class="headerlink" title="数据绑定"></a>数据绑定</h3><p>AngularJS 使用双向绑定，Vue 在不同组件间强制使用单向数据流。这使应用中的数据流更加清晰易懂。</p>
 <h3 id="指令与组件"><a href="#指令与组件" class="headerlink" title="指令与组件"></a>指令与组件</h3><p>在 Vue 中指令和组件分得更清晰。指令只封装 DOM 操作，而组件代表一个自给自足的独立单元——有自己的视图和数据逻辑。在 AngularJS 中两者有不少相混的地方。</p>
-<h3 id="性能-1"><a href="#性能-1" class="headerlink" title="性能"></a>性能</h3><p>Vue 有更好的性能，并且非常非常容易优化，因为它不使用脏检查。</p>
+<h3 id="运行时性能-1"><a href="#运行时性能-1" class="headerlink" title="运行时性能"></a>运行时性能</h3><p>Vue 有更好的性能，并且非常非常容易优化，因为它不使用脏检查。</p>
 <p>在 AngularJS 中，当 watcher 越来越多时会变得越来越慢，因为作用域内的每一次变化，所有 watcher 都要重新计算。并且，如果一些 watcher 触发另一个更新，脏检查循环 (digest cycle) 可能要运行多次。AngularJS 用户常常要使用深奥的技术，以解决脏检查循环的问题。有时没有简单的办法来优化有大量 watcher 的作用域。</p>
 <p>Vue 则根本没有这个问题，因为它使用基于依赖追踪的观察系统并且异步队列更新，所有的数据变化都是独立触发，除非它们之间有明确的依赖关系。</p>
 <p>有意思的是，Angular 和 Vue 用相似的设计解决了一些 AngularJS 中存在的问题。</p>
@@ -935,8 +935,8 @@
 <h3 id="TypeScript"><a href="#TypeScript" class="headerlink" title="TypeScript"></a>TypeScript</h3><p>Angular 事实上必须用 TypeScript 来开发，因为它的文档和学习资源几乎全部是面向 TS 的。TS 有很多好处——静态类型检查在大规模的应用中非常有用，同时对于 Java 和 C# 背景的开发者也是非常提升开发效率的。</p>
 <p>然而，并不是所有人都想用 TS——在中小型规模的项目中，引入 TS 可能并不会带来太多明显的优势。在这些情况下，用 Vue 会是更好的选择，因为在不用 TS 的情况下使用 Angular 会很有挑战性。</p>
 <p>最后，虽然 Vue 和 TS 的整合可能不如 Angular 那么深入，我们也提供了官方的 <a href="https://github.com/vuejs/vue/tree/dev/types" target="_blank" rel="external">类型声明</a> 和 <a href="https://github.com/vuejs/vue-class-component" target="_blank" rel="external">组件装饰器</a>，并且知道有大量用户在生产环境中使用 Vue + TS 的组合。我们也和微软的 TS / VSCode 团队进行着积极的合作，目标是为 Vue + TS 用户提供更好的类型检查和 IDE 开发体验。</p>
-<h3 id="大小和性能"><a href="#大小和性能" class="headerlink" title="大小和性能"></a>大小和性能</h3><p>在性能方面，这两个框架都非常的快，我们也没有足够的实际应用数据来下一个结论。如果你一定想看些数据的话，你可以参考这个<a href="http://stefankrause.net/js-frameworks-benchmark4/webdriver-ts/table.html" target="_blank" rel="external">第三方跑分</a>。单就这个跑分来看，Vue 似乎比 Angular 要更快一些。</p>
-<p>在大小方面，最近的 Angular 版本中在使用了 <a href="https://en.wikipedia.org/wiki/Ahead-of-time_compilation" target="_blank" rel="external">AOT</a> 和 <a href="https://en.wikipedia.org/wiki/Tree_shaking" target="_blank" rel="external">tree-shaking</a> 技术后使得最终的代码体积减小了许多。但即使如此，一个包含了 Vuex + Vue Router 的 Vue 项目 (30kB gzipped) 相比使用了这些优化的 <code>angular-cli</code> 生成的默认项目尺寸 (~130kB) 还是要小的多。</p>
+<h3 id="运行时性能-2"><a href="#运行时性能-2" class="headerlink" title="运行时性能"></a>运行时性能</h3><p>这两个框架都很快，有非常类似的 benchmark 数据。你可以<a href="http://www.stefankrause.net/js-frameworks-benchmark7/table.html" target="_blank" rel="external">浏览具体的数据</a>做更细粒度的对比，不过速度应该不是决定性的因素。</p>
+<h3 id="体积"><a href="#体积" class="headerlink" title="体积"></a>体积</h3><p>在体积方面，最近的 Angular 版本中在使用了 <a href="https://en.wikipedia.org/wiki/Ahead-of-time_compilation" target="_blank" rel="external">AOT</a> 和 <a href="https://en.wikipedia.org/wiki/Tree_shaking" target="_blank" rel="external">tree-shaking</a> 技术后使得最终的代码体积减小了许多。但即使如此，一个包含了 Vuex + Vue Router 的 Vue 项目 (gzip 之后 30kB) 相比使用了这些优化的 <code>angular-cli</code> 生成的默认项目尺寸 (~130kB) 还是要小得多。</p>
 <h3 id="灵活性"><a href="#灵活性" class="headerlink" title="灵活性"></a>灵活性</h3><p>Vue 相比于 Angular 更加灵活，Vue 官方提供了构建工具来协助你构建项目，但它并不限制你去如何组织你的应用代码。有人可能喜欢有严格的代码组织规范，但也有开发者喜欢更灵活自由的方式。</p>
 <h3 id="学习曲线"><a href="#学习曲线" class="headerlink" title="学习曲线"></a>学习曲线</h3><p>要学习 Vue，你只需要有良好的 HTML 和 JavaScript 基础。有了这些基本的技能，你就可以非常快速地通过阅读 <a href="./">指南</a> 投入开发。</p>
 <p>Angular 的学习曲线是非常陡峭的——作为一个框架，它的 API 面积比起 Vue 要大得多，你也因此需要理解更多的概念才能开始有效率地工作。当然，Angular 本身的复杂度是因为它的设计目标就是只针对大型的复杂应用；但不可否认的是，这也使得它对于经验不甚丰富的开发者相当的不友好。</p>
@@ -947,7 +947,7 @@
 </li>
 <li><p>Vue 的模板语法可以用全功能的 JavaScript 表达式，而 Handlebars 的语法和帮助函数相比来说非常受限。</p>
 </li>
-<li><p>在性能上，Vue 比 Ember <a href="https://rawgit.com/krausest/js-framework-benchmark/master/webdriver-ts/table.html" target="_blank" rel="external">好很多</a>，即使是 Ember 2.x 的最新 Glimmer 引擎。Vue 能够自动批量更新，而 Ember 在关键性能场景时需要手动管理。</p>
+<li><p>在性能上，Vue 比 Ember <a href="http://www.stefankrause.net/js-frameworks-benchmark7/table.html" target="_blank" rel="external">好很多</a>，即使是 Ember 2.x 的最新 Glimmer 引擎。Vue 能够自动批量更新，而 Ember 在性能敏感的场景时需要手动管理。</p>
 </li>
 </ul>
 <h2 id="Knockout"><a href="#Knockout" class="headerlink" title="Knockout"></a>Knockout</h2><p>Knockout 是 MVVM 领域内的先驱，并且追踪依赖。它的响应系统和 Vue 也很相似。它在<a href="http://knockoutjs.com/documentation/browser-support.html" target="_blank" rel="external">浏览器支持</a>以及其他方面的表现也是让人印象深刻的。它最低能支持到 IE6，而 Vue 最低只能支持到 IE9。</p>

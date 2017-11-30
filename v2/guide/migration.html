@@ -1260,7 +1260,7 @@ new Vue({
 <p>这些方法的最常见用途之一是父子组件的相互通信。在这些情况下，你可以使用 <a href="components.html#使用自定义事件的表单输入组件"><code>v-on</code>监听子组件上 $emit 的变化</a>。这可以允许你很方便的添加事件显性。</p>
 <p>然而，如果是跨多层父子组件通信的话，<code>$emit</code> 并没有什么用。相反，用集中式的事件中间件可以做到简单的升级。这会让组件之间的通信非常顺利，即使是兄弟组件。因为 Vue 通过事件发射器接口执行实例，实际上你可以使用一个空的 Vue 实例。</p>
 <p>比如，假设我们有个 todo 的应用结构如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Todos</div><div class="line">|-- NewTodoInput</div><div class="line">|-- Todo</div><div class="line">    |-- DeleteTodoButton</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Todos</div><div class="line">├─ NewTodoInput</div><div class="line">└─ Todo</div><div class="line">   └─ DeleteTodoButton</div></pre></td></tr></table></figure>
 <p>可以通过单独的事件中心管理组件间的通信：</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// 将在各处使用该事件中心</span></div><div class="line"><span class="comment">// 组件通过它来通信</span></div><div class="line"><span class="keyword">var</span> eventHub = <span class="keyword">new</span> Vue()</div></pre></td></tr></table></figure>
 <p>然后在组件中，可以使用 <code>$emit</code>, <code>$on</code>, <code>$off</code> 分别来分发、监听、取消监听事件：</p>

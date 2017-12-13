@@ -851,14 +851,13 @@ ul.demo li {
 }
 .sidebar .main-sponsor .logo {
   color: #7f8c8d;
-  margin-top: 20px;
+  margin-top: 15px;
   text-align: center;
   font-weight: bold;
   display: block;
 }
 .sidebar .main-sponsor .logo:last-child {
-  margin-top: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 .sidebar .main-sponsor img,
 .sidebar .main-sponsor a {

@@ -848,7 +848,7 @@
     
       <div id="ad">
   <a href="https://time.geekbang.org/?utm_source=website&utm_medium=vue&utm_campaign=routine&utm_content=tuijian" target="_blank" rel="nofollow">
-    <img src="/images/geekbang.jpg" alt="极客时间">
+    <img src="/images/geekbang2.jpg" alt="极客时间">
   </a>
 </div>
 
@@ -1019,7 +1019,7 @@ new Vue({
 <p>你可以添加一个新的 <code>age</code> 属性到嵌套的 <code>userProfile</code> 对象：</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.set(vm.userProfile, <span class="string">'age'</span>, <span class="number">27</span>)</div></pre></td></tr></table></figure>
 <p>你还可以使用 <code>vm.$set</code> 实例方法，它只是全局 <code>Vue.set</code> 的别名：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">this</span>.$set(<span class="keyword">this</span>.userProfile, <span class="string">'age'</span>, <span class="number">27</span>)</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">vm.$set(<span class="keyword">this</span>.userProfile, <span class="string">'age'</span>, <span class="number">27</span>)</div></pre></td></tr></table></figure>
 <p>有时你可能需要为已有对象赋予多个新属性，比如使用 <code>Object.assign()</code> 或 <code>_.extend()</code>。在这种情况下，你应该用两个对象的属性创建一个新的对象。所以，如果你想添加新的响应式属性，不要像这样：</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="built_in">Object</span>.assign(<span class="keyword">this</span>.userProfile, &#123;</div><div class="line">  <span class="attr">age</span>: <span class="number">27</span>,</div><div class="line">  <span class="attr">favoriteColor</span>: <span class="string">'Vue Green'</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p>你应该这样做：</p>
